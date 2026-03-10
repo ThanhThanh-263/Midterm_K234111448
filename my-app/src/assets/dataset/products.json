@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "prod01",
+    "name": "Classic White Tee",
+    "price": 20,
+    "model": "TS-100",
+    "made_by": "TeeSearch Studio",
+    "category_id": "cat01",
+    "stock": 100
+  },
+  {
+    "_id": "prod02",
+    "name": "Black Oversize Tee",
+    "price": 25,
+    "model": "TS-101",
+    "made_by": "TeeSearch Studio",
+    "category_id": "cat01",
+    "stock": 80
+  },
+  {
+    "_id": "prod03",
+    "name": "Street Hoodie",
+    "price": 45,
+    "model": "HD-200",
+    "made_by": "UrbanWear",
+    "category_id": "cat02",
+    "stock": 60
+  },
+  {
+    "_id": "prod04",
+    "name": "Denim Jacket",
+    "price": 70,
+    "model": "JK-300",
+    "made_by": "Levi Style",
+    "category_id": "cat03",
+    "stock": 40
+  },
+  {
+    "_id": "prod05",
+    "name": "Slim Fit Pants",
+    "price": 50,
+    "model": "PT-400",
+    "made_by": "UrbanWear",
+    "category_id": "cat04",
+    "stock": 55
+  }
+]

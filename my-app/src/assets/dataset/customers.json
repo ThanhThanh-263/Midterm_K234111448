@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "cus01",
+    "name": "Nguyen Minh Anh",
+    "email": "anh@gmail.com",
+    "password": "123456",
+    "phone": "0901111111",
+    "address": "Ho Chi Minh City"
+  },
+  {
+    "_id": "cus02",
+    "name": "Tran Bao Chau",
+    "email": "chau@gmail.com",
+    "password": "123456",
+    "phone": "0902222222",
+    "address": "Hanoi"
+  },
+  {
+    "_id": "cus03",
+    "name": "Le Hoang Nam",
+    "email": "nam@gmail.com",
+    "password": "123456",
+    "phone": "0903333333",
+    "address": "Da Nang"
+  },
+  {
+    "_id": "cus04",
+    "name": "Pham Thi Lan",
+    "email": "lan@gmail.com",
+    "password": "123456",
+    "phone": "0904444444",
+    "address": "Can Tho"
+  },
+  {
+    "_id": "cus05",
+    "name": "Vo Thanh Tung",
+    "email": "tung@gmail.com",
+    "password": "123456",
+    "phone": "0905555555",
+    "address": "Hue"
+  }
+]

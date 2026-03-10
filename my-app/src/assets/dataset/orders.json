@@ -1,0 +1,37 @@
+[
+    {
+        "_id": "order01",
+        "customer_id": "cus01",
+        "order_date": "2026-03-01",
+        "status": "paid",
+        "total_amount": 65
+    },
+    {
+        "_id": "order02",
+        "customer_id": "cus02",
+        "order_date": "2026-03-02",
+        "status": "paid",
+        "total_amount": 45
+    },
+    {
+        "_id": "order03",
+        "customer_id": "cus03",
+        "order_date": "2026-03-03",
+        "status": "pending",
+        "total_amount": 70
+    },
+    {
+        "_id": "order04",
+        "customer_id": "cus01",
+        "order_date": "2026-03-05",
+        "status": "paid",
+        "total_amount": 50
+    },
+    {
+        "_id": "order05",
+        "customer_id": "cus04",
+        "order_date": "2026-03-06",
+        "status": "paid",
+        "total_amount": 90
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "_id": "emp01",
+        "name": "Admin Panda",
+        "email": "admin@panda.com",
+        "password": "admin123",
+        "role": "manager"
+    },
+    {
+        "_id": "emp02",
+        "name": "Nguyen Van B",
+        "email": "employee1@panda.com",
+        "password": "123456",
+        "role": "staff"
+    },
+    {
+        "_id": "emp03",
+        "name": "Tran Thi C",
+        "email": "employee2@panda.com",
+        "password": "123456",
+        "role": "staff"
+    },
+    {
+        "_id": "emp04",
+        "name": "Le Van D",
+        "email": "employee3@panda.com",
+        "password": "123456",
+        "role": "staff"
+    },
+    {
+        "_id": "emp05",
+        "name": "Pham Thi E",
+        "email": "employee4@panda.com",
+        "password": "123456",
+        "role": "staff"
+    }
+]

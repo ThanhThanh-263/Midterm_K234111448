@@ -1,0 +1,71 @@
+<div class="vip-container">
+  <h2>👑 VIP Customers (Employee Only)</h2>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-error">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <p>Loading VIP customers...</p>
+  </div>
+
+  <div *ngIf="!loading" class="vip-content">
+    <!-- Top N Filter -->
+    <div class="top-n-filter">
+      <label for="topNInput">Show Top N Customers:</label>
+      <input 
+        type="number" 
+        id="topNInput"
+        min="1" 
+        max="100"
+        [(ngModel)]="topN"
+        class="form-control"
+      />
+      <button (click)="updateVIPCount()" class="btn btn-primary">Update</button>
+    </div>
+
+    <!-- VIP Customers Grid -->
+    <div *ngIf="vipCustomers && vipCustomers.length > 0" class="vip-grid">
+      <div *ngFor="let customer of vipCustomers; let i = index" class="vip-card">
+        <div class="vip-rank">
+          <span class="rank-badge">{{ i + 1 }}</span>
+          <span class="crown-icon">👑</span>
+        </div>
+        
+        <div class="vip-info">
+          <h3>{{ customer.name }}</h3>
+          <p class="email">{{ customer.email }}</p>
+          <p class="phone" *ngIf="customer.phone">{{ customer.phone }}</p>
+        </div>
+
+        <div class="vip-stats">
+          <div class="stat">
+            <span class="label">Total Spent</span>
+            <span class="value">${{ customer.totalSpent }}</span>
+          </div>
+          <div class="stat">
+            <span class="label">Orders</span>
+            <span class="value">{{ customer.orders }}</span>
+          </div>
+          <div class="stat">
+            <span class="label">Avg Order</span>
+            <span class="value">${{ (customer.totalSpent / customer.orders).toFixed(2) }}</span>
+          </div>
+        </div>
+
+        <div class="vip-badge" *ngIf="i < 3">
+          <span *ngIf="i === 0" class="badge-gold">🥇 GOLD</span>
+          <span *ngIf="i === 1" class="badge-silver">🥈 SILVER</span>
+          <span *ngIf="i === 2" class="badge-bronze">🥉 BRONZE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- No VIP Customers -->
+    <div *ngIf="vipCustomers && vipCustomers.length === 0" class="no-vip-customers">
+      <p>No VIP customers found</p>
+    </div>
+  </div>
+</div>

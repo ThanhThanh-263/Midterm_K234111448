@@ -1,0 +1,91 @@
+<div class="products-container">
+  <div class="products-header">
+    <h2>🏪 Shopping - All Products</h2>
+    <p *ngIf="!isLoggedIn" class="login-prompt">Please <a routerLink="/login">login</a> to add products to cart</p>
+  </div>
+
+  <!-- Filters Section -->
+  <div class="filters-section">
+    <div class="filter-group">
+      <h4>Filter by Category:</h4>
+      <select (ngModelChange)="filterByCategory($event)" [(ngModel)]="selectedCategory" class="form-control">
+        <option value="">All Categories</option>
+        <option *ngFor="let cat of categories" [value]="cat._id">{{ cat.name }}</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <h4>Search by Price:</h4>
+      <div class="price-filter">
+        <div class="price-input">
+          <label>Min: $</label>
+          <input type="number" [(ngModel)]="searchMinPrice" placeholder="0" class="form-control">
+        </div>
+        <div class="price-input">
+          <label>Max: $</label>
+          <input type="number" [(ngModel)]="searchMaxPrice" placeholder="9999" class="form-control">
+        </div>
+        <button (click)="searchByPrice()" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-error">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <p>Loading products...</p>
+  </div>
+
+  <!-- Products Grid -->
+  <div *ngIf="!loading && filteredProducts.length > 0" class="products-grid">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <div class="product-image">
+        <img [src]="product.image || 'https://placehold.co/200x200?text=No+Image'"
+             [alt]="product.name"
+             onerror="this.onerror=null;this.src='https://placehold.co/200x200?text=No+Image'" />
+      </div>
+
+      <div class="product-info">
+        <h3>{{ product.name }}</h3>
+        <p class="product-model">Model: {{ product.model }}</p>
+        <p class="product-brand">Brand: {{ product.made_by }}</p>
+        <p class="product-stock">Stock: {{ product.stock }}</p>
+
+        <div class="product-price">
+          <span class="price">${{ product.price }}</span>
+        </div>
+
+        <div class="product-actions">
+          <div class="quantity-selector">
+            <label>Qty:</label>
+            <input
+              type="number"
+              min="1"
+              [value]="getQuantity(product._id)"
+              (change)="setQuantity(product._id, $any($event.target).value)"
+              class="qty-input"
+            />
+          </div>
+
+          <button
+            (click)="addToCart(product)"
+            [disabled]="!isLoggedIn"
+            class="btn btn-buy"
+            [title]="isLoggedIn ? 'Add to cart' : 'Please login to buy'"
+          >
+            🛒 Buy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Products -->
+  <div *ngIf="!loading && filteredProducts.length === 0" class="no-products">
+    <p>No products found</p>
+  </div>
+</div>

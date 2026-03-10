@@ -1,0 +1,27 @@
+[
+  {
+    "_id": "cat01",
+    "name": "T-Shirts",
+    "description": "Casual cotton t-shirts"
+  },
+  {
+    "_id": "cat02",
+    "name": "Hoodies",
+    "description": "Warm hoodies"
+  },
+  {
+    "_id": "cat03",
+    "name": "Jackets",
+    "description": "Fashion jackets"
+  },
+  {
+    "_id": "cat04",
+    "name": "Pants",
+    "description": "Fashion pants"
+  },
+  {
+    "_id": "cat05",
+    "name": "Accessories",
+    "description": "Fashion accessories"
+  }
+]

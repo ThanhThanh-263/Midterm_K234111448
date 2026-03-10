@@ -1,0 +1,97 @@
+<div class="revenue-container">
+  <h2>📊 Revenue Statistics (Employee Only)</h2>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-error">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <p>Loading revenue data...</p>
+  </div>
+
+  <div *ngIf="!loading" class="revenue-content">
+    <!-- Summary Section -->
+    <div *ngIf="revenueData" class="revenue-summary">
+      <div class="summary-card">
+        <h3>Total Revenue</h3>
+        <p class="amount">${{ revenueData.totalRevenue || 0 }}</p>
+      </div>
+      <div class="summary-card">
+        <h3>Total Orders</h3>
+        <p class="amount">{{ revenueData.totalOrders || 0 }}</p>
+      </div>
+      <div class="summary-card">
+        <h3>Average Order</h3>
+        <p class="amount">${{ revenueData.averageOrder || 0 }}</p>
+      </div>
+      <div class="summary-card">
+        <h3>Unique Customers</h3>
+        <p class="amount">{{ revenueData.uniqueCustomers || 0 }}</p>
+      </div>
+    </div>
+
+    <!-- Year Filter -->
+    <div class="year-filter">
+      <label for="yearSelect">Select Year:</label>
+      <select id="yearSelect" [(ngModel)]="selectedYear" (change)="loadRevenueByYear()" class="form-control">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+
+    <!-- Revenue by Month -->
+    <div *ngIf="revenueByYear && revenueByYear.length > 0" class="revenue-by-month">
+      <h3>Revenue by Month ({{ selectedYear }})</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Revenue</th>
+            <th>Orders</th>
+            <th>Average</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let month of revenueByYear">
+            <td>{{ month.month }}</td>
+            <td>${{ month.revenue }}</td>
+            <td>{{ month.orders }}</td>
+            <td>${{ month.average }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Load Top Customers -->
+    <div class="top-customers-section">
+      <button (click)="loadTopCustomers()" class="btn btn-primary">
+        Load Top 10 Customers
+      </button>
+
+      <div *ngIf="topCustomers && topCustomers.length > 0" class="top-customers">
+        <h3>Top Customers by Purchase Value</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Customer Name</th>
+              <th>Total Spent</th>
+              <th>Orders</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of topCustomers; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ customer.name }}</td>
+              <td>${{ customer.totalSpent }}</td>
+              <td>{{ customer.orders }}</td>
+              <td>{{ customer.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

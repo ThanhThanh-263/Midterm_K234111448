@@ -1,0 +1,37 @@
+[
+    {
+        "_id": "detail01",
+        "order_id": "order01",
+        "product_id": "prod01",
+        "quantity": 2,
+        "price": 20
+    },
+    {
+        "_id": "detail02",
+        "order_id": "order01",
+        "product_id": "prod02",
+        "quantity": 1,
+        "price": 25
+    },
+    {
+        "_id": "detail03",
+        "order_id": "order02",
+        "product_id": "prod03",
+        "quantity": 1,
+        "price": 45
+    },
+    {
+        "_id": "detail04",
+        "order_id": "order04",
+        "product_id": "prod05",
+        "quantity": 1,
+        "price": 50
+    },
+    {
+        "_id": "detail05",
+        "order_id": "order05",
+        "product_id": "prod04",
+        "quantity": 1,
+        "price": 70
+    }
+]
